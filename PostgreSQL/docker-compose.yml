@@ -1,0 +1,48 @@
+version: '3.3'
+
+networks: 
+  unpgsql:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 173.23.0.0/24
+
+
+services:
+  pgsql:
+    image: postgres:latest
+    restart: unless-stopped
+    container_name: psql_university
+    volumes: 
+      - psdb-volume:/var/lib/postgresql/data
+    networks: 
+      unpgsql:
+        ipv4_address: 173.23.0.2
+    ports:
+      - target: 5432
+        published: 5433 
+        protocol: tcp
+        mode: host
+    environment:
+      - POSTGRES_PASSWORD=01234
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    container_name: pgadmin_university
+    networks:
+      unpgsql:
+        ipv4_address: 173.23.0.3
+    ports:
+      - target: 80
+        published: 82
+        protocol: tcp
+        mode: host
+    environment:
+      - PGADMIN_CONFIG_SERVER_MODE=True 
+      - PGADMIN_DEFAULT_EMAIL=ferrara@domionio.com
+      - PGADMIN_DEFAULT_PASSWORD=01234
+
+
+volumes:
+  psdb-volume:

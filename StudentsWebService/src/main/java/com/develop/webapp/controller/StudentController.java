@@ -17,6 +17,10 @@ import com.develop.webapp.service.StudentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("api/students")
 public class StudentController {
@@ -29,6 +33,16 @@ public class StudentController {
         return "rest controller ok";
     }
 
+    @ApiOperation(
+			value="Return all students from Database",
+			notes="Return an array of students represented in json format",
+			response = Student.class,
+			produces = "application/json"
+		)
+    @ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Students returned correctly"),
+			@ApiResponse(code = 404, message = "Students not found")
+	})
     @GetMapping(value = "get/all")
     public ResponseEntity<?> getStudents() {
 
@@ -49,6 +63,30 @@ public class StudentController {
 
     }
     
+    /*
+    @ApiOperation(
+			value="Return student from Database",
+			notes="Return a student represented in json format",
+			response = Student.class,
+			produces = "application/json"
+		)
+    @ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Student returned correctly"),
+			@ApiResponse(code = 404, message = "Student not found")
+	})
+	
+	*/
+    
+    @ApiOperation(
+			value="Add student into Database",
+			notes="Add student represented in json format and converted into object",
+			response = Student.class,
+			produces = "application/json"
+		)
+    @ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Student added correctly"),
+			@ApiResponse(code = 201, message = "Student added correctly")
+	})
     @PostMapping(value = "post/student")
     public ResponseEntity<?> addStudent(@RequestBody Student student) {
 		
@@ -70,6 +108,17 @@ public class StudentController {
 		
 	}
     
+    
+    @ApiOperation(
+			value="Add students into Database",
+			notes="Add students represented in json format and converted into objects",
+			response = Student.class,
+			produces = "application/json"
+		)
+    @ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Students added correctly"),
+			@ApiResponse(code = 201, message = "Students added correctly")
+	})
     @PostMapping(value = "post/students")
 	public ResponseEntity<?> addUniversity(@RequestBody List<Student> students) {
 		

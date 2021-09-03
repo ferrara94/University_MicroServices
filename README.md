@@ -22,6 +22,8 @@ Each MicroServices is a **SpringBoot** project, so most of the Configurations ar
 - [ ] PostgreSQL database
 - [ ] Spring Web Modules
 - [ ] Tomcat (provided by SpringBoot)
+- [ ] Docker 
+- [ ] Bash 
 
 ---
 #### > Microservices

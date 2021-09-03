@@ -1,8 +1,12 @@
+server:
+  port: 8019
 
-
+# ==============================================================
+# = Users Credential Services
+# ==============================================================
 spring:
   application:
-    name: StudentsWebService
+    name: UsersService
   # ==============================================================
   # = DBMS PostgreSQL Parameters
   # ==============================================================
@@ -10,7 +14,7 @@ spring:
     initialization-mode: always
     password: '01234'
     platform: postgres
-    url: jdbc:postgresql://localhost:5433/University
+    url: jdbc:postgresql://localhost:5433/UsersCredentials
     username: postgres
   jpa:
     hibernate:
@@ -23,9 +27,16 @@ spring:
             non_contextual_creation: true
     show-sql: true
 
+
+# ==============================================================
+# = Log Properties Levels 
+# = Default ERROR, WARN and INFO 
+# = Levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+# ============================================================== 
+
 logging:
   file:
-    name: './logs/StudentsWebService.log'
+    name: './logs/UsersCredentialsService.log'
     max-size: 1MB
   pattern:
     file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n%n"
@@ -35,15 +46,13 @@ logging:
   level:
    root: WARN
   # Log specific levels
-   '[org.springframework.security]': DEBUG
-   '[org.hibernate]': INFO
-   '[org.springframework.web]': INFO   
-   '[com.develop.webapp.controller]': INFO
-   
-   
-   
-   
-   
-   
-   
-   
+   org.springframework.security: DEBUG
+   org.hibernate: INFO
+   org.springframework.web: INFO
+   com.develop.credentials.controller: INFO
+
+      
+      
+
+
+  

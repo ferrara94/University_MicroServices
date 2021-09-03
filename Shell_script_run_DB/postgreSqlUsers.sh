@@ -1,7 +1,7 @@
-cd PostgreSQL
+cd ../PostgreSQL_UsersCredentials
 
 echo "------------------------------------------------------"
-echo "starting pgadmin and postgresql for University Project"
+echo "starting postgresql for Users Credentials Service"
 echo "------------------------------------------------------"
 
 sudo docker-compose up

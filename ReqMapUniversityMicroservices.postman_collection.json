@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "0e0f6014-18db-4a70-80f5-05577e572dbd",
+		"name": "ReqMapUniversityMicroservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "students_web_service",
+			"item": [
+				{
+					"name": "GET_STUDENTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/students/get/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_STUDENT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 61270,\n    \"name\": \"Filippo\",\n    \"surname\": \"Angrisani\",\n    \"birthdate\": \"1994-06-02T22:00:00.000+00:00\",\n    \"university\": \"Salerno\",\n    \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/post/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"post",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_STUDENTS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 61871,\n        \"name\": \"Marco\",\n        \"surname\": \"Maffucci\",\n        \"birthdate\": \"1992-02-02T22:00:00.000+00:00\",\n        \"university\": \"Milano\",\n        \"active\": true\n    },\n    {\n        \"id\": 61458,\n        \"name\": \"Pasquale\",\n        \"surname\": \"Lettieri\",\n        \"birthdate\": \"1990-07-08T22:00:00.000+00:00\",\n        \"university\": \"Napoli\",\n        \"active\": true\n    },\n    {\n        \"id\": 61357,\n        \"name\": \"Francesco\",\n        \"surname\": \"Rossi\",\n        \"birthdate\": \"1995-11-08T22:00:00.000+00:00\",\n        \"university\": \"Salerno\",\n        \"active\": false\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/post/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"post",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_STUDENTS_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/students/get/student/id/61270",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"get",
+								"student",
+								"id",
+								"61270"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users_credentials_service",
+			"item": [
+				{
+					"name": "GET_USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8019/api/users/get/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8019",
+							"path": [
+								"api",
+								"users",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userid\": \"Felice\",\n    \"password\": \"01234\",\n    \"active\": true,\n    \"role\": \"USER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8019/api/users/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8019",
+							"path": [
+								"api",
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_USERS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"userid\": \"Felice\",\n        \"password\": \"01234\",\n        \"active\": true,\n        \"role\": \"USER\"\n    },\n    {\n        \"userid\": \"Admin\",\n        \"password\": \"87960\",\n        \"active\": true,\n        \"role\": \"ADMIN\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8019/api/users/add/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8019",
+							"path": [
+								"api",
+								"users",
+								"add",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_USER_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8019/api/users/get/user/Felice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8019",
+							"path": [
+								"api",
+								"users",
+								"get",
+								"user",
+								"Felice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

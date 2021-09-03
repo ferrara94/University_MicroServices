@@ -1,0 +1,20 @@
+03-09-2021 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+
+03-09-2021 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+
+03-09-2021 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+03-09-2021 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+03-09-2021 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+
+03-09-2021 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+
+03-09-2021 [http-nio-8080-exec-2] INFO  c.d.w.controller.StudentController -  --- Start Get all students from DB ---
+
+03-09-2021 [http-nio-8080-exec-2] INFO  c.d.w.controller.StudentController -  --- End Get all users from DB ---
+
+03-09-2021 [http-nio-8080-exec-5] INFO  c.d.w.controller.StudentController -  --- Start Get student with id 61270 from DB ---
+
+03-09-2021 [http-nio-8080-exec-5] INFO  c.d.w.controller.StudentController -  --- End Get student with id 61270 from DB ---
+

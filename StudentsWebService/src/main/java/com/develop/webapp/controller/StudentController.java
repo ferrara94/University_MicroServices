@@ -2,11 +2,14 @@ package com.develop.webapp.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +27,9 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("api/students")
 public class StudentController {
-
+	
+	private final Logger LOG = LoggerFactory.getLogger(getClass());
+		
     @Autowired
     StudentService service;
 
@@ -45,10 +50,14 @@ public class StudentController {
 	})
     @GetMapping(value = "get/all")
     public ResponseEntity<?> getStudents() {
+    	
+    	LOG.info(" --- Start Get all students from DB ---");
 
     	List<Student> students = service.getStudents();
 
         if(students.isEmpty()) {
+        	
+        	LOG.warn("--- Student list is empty ---");
 
             ObjectMapper mapper = new ObjectMapper();
             ObjectNode responseNode = mapper.createObjectNode();
@@ -58,12 +67,14 @@ public class StudentController {
 
             return new ResponseEntity<>(responseNode, HttpStatus.NO_CONTENT);
         }
+        
+        LOG.info(" --- End Get all users from DB ---");
 
         return new ResponseEntity<List<Student>>(students,HttpStatus.OK);
 
     }
     
-    /*
+    
     @ApiOperation(
 			value="Return student from Database",
 			notes="Return a student represented in json format",
@@ -73,9 +84,25 @@ public class StudentController {
     @ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Student returned correctly"),
 			@ApiResponse(code = 404, message = "Student not found")
-	})
-	
-	*/
+	})	
+    @GetMapping(value = "get/student/id/{id}")
+	public ResponseEntity<Student> getStudentByID(@PathVariable Long id){
+		
+    	LOG.info(String.format(" --- Start Get student with id %s from DB ---", id));
+		    	
+		Student student = service.getStudent(id);
+		
+		if(student == null) {
+			
+			LOG.warn(String.format(" --- Student with id %s not found ---", id));
+			
+			return new ResponseEntity<Student>(HttpStatus.NO_CONTENT);
+		}
+		
+		LOG.info(String.format(" --- End Get student with id %s from DB ---", id));
+				
+		return new ResponseEntity<Student>(student, HttpStatus.OK);
+	}
     
     @ApiOperation(
 			value="Add student into Database",

@@ -7,7 +7,7 @@ Application based on Microservices.
 
 The MicroServices are related to University World, but they are based on a limited number of entities.
 
-Each MicroServices is a **SpringBoot** project, so most of the Configurations are provided by default.
+Each MicroService is a **SpringBoot** project, so most of the Configurations are provided by default.
 
 **RequestsMapping.postman_collection** is a collection of RequestMapping in postman which you can use direclty to test the services.
 

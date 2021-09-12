@@ -21,7 +21,7 @@ services:
         ipv4_address: 173.22.0.2
     ports:
       - target: 5432
-        published: 5433 
+        published: 5434 
         protocol: tcp
         mode: host
     environment:

@@ -39,7 +39,16 @@ logging:
    '[org.hibernate]': INFO
    '[org.springframework.web]': INFO   
    '[com.develop.webapp.controller]': INFO
-   
+  
+# ==============================================================
+# = Custom Parameters
+#Opzioni Accesso Servizio gestuser 
+# ==============================================================
+usercredential:
+  serviceURL: http://localhost:8019/api/users/fetch/user/
+  serviceURL2: http://localhost:8019/api/users/fetch/users
+  userId: felice
+  password: 
    
    
    

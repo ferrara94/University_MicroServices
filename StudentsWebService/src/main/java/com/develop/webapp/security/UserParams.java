@@ -8,6 +8,8 @@ import lombok.Data;
 @ConfigurationProperties("usercredential") //properties from application.yml
 @Data
 public class UserParams {
+	private String serviceURL;
 	private String userId;
 	private String password;
+	private String serviceURL2;
 }

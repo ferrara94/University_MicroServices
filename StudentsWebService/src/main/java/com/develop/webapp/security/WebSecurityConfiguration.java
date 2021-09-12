@@ -1,5 +1,10 @@
 package com.develop.webapp.security;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,6 +21,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
+	@Autowired
+	CustomUserDetailsService userService;
+	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder()
 	{
@@ -59,12 +67,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 		
-		manager.createUser(
-				 users
-				 	.username("Felix")
-				 	.password(new BCryptPasswordEncoder().encode("01234"))
-				 	.roles("USER")
-				 	.build());
+		UserEntity u = userService.getUser("Felice");
+		
+					
+			manager.createUser(
+					 users
+					 	.username(u.getUserid())
+					 	.password(new BCryptPasswordEncoder().encode(u.getPassword()))
+					 	.roles(u.getRole())
+					 	.build());
+				
 		
 		return manager;
 	}

@@ -20,7 +20,8 @@ public class StudentsInfo implements InfoContributor{
 	@Override
 	public void contribute(Builder builder) {
 		
-		int studentsNumber = repo.findAll().size();
+		//int studentsNumber = repo.findAll().size();
+		Long studentsNumber = repo.countStudents();
 		
 		Map<String, Object> info = new HashMap<>();
 		

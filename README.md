@@ -13,9 +13,10 @@ Each MicroService is a **SpringBoot** project, so most of the Configurations are
 
 ---
 
-#### > database
+#### > databases
 
-Once you have run shell scrips in their folder location with **./nameScript.sh**, you have to create related application DB.
+Once you have run shell scripts in their folder location with **./nameScript.sh**, you have to create related application DB.
+
 For instance, to run the Students Web Services, you need to create **University** DB and necessary tables. 
 
 ---

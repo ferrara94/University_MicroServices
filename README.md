@@ -12,6 +12,13 @@ Each MicroService is a **SpringBoot** project, so most of the Configurations are
 **RequestsMapping.postman_collection** is a collection of RequestMapping in postman which you can use direclty to test the services.
 
 ---
+
+#### > database
+
+Once you have run shell scrips in their folder location with **./nameScript.sh**, you have to create related application DB.
+For instance, to run the Students Web Services, you need to create **University** DB and necessary tables. 
+
+---
 #### > technologies, libraries & representations
 
 - [ ] Java 11

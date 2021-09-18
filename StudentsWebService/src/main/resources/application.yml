@@ -49,9 +49,38 @@ usercredential:
   serviceURL2: http://localhost:8019/api/users/fetch/users
   userId: felice
   password: 
+  
+  
+  
+  
+  
+# ==============================================================
+# = Actuator Parameters
+# ==============================================================
+management:
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
    
    
-   
+# ==============================================================
+# = Actuator Info
+# ==============================================================
+info:
+  contact:
+    name: "ferr"
+    mail: "ferr@doiminio.it"
+    phone: "3333333333"
+    office-hours: "9-14"
+  application:
+    name-application: "Students Service - Basic Auth Version"
    
    
    

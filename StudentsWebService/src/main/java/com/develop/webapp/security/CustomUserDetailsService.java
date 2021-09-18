@@ -1,20 +1,26 @@
 package com.develop.webapp.security;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 @Service("customdetailsservice")
 public class CustomUserDetailsService {
+	
+	private final Logger LOG = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	UserParams params;
 	
 	public UserEntity getUser(String userId){
+		
+		LOG.info(String.format(" --- Start retriving user %s from external service ---", userId));
+		System.err.println("MANUAL LOG: Start retriving user " +userId + " from external service  " + params.getServiceURL());
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
@@ -22,9 +28,13 @@ public class CustomUserDetailsService {
 		try {
 			url = new URI(params.getServiceURL() + userId);
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
+			LOG.warn(String.format(" --- Retriving error from external service %s---", params.getServiceURL()));
 			e.printStackTrace();
 		}
+		
+		LOG.info(String.format(" --- End retring user %s from external service ---", userId));
+		System.err.println("MANUAL LOG: End retriving user " +userId + " from external service " + params.getServiceURL());
+		
 		
 		return restTemplate.getForObject(url, UserEntity.class);
 	}

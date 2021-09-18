@@ -16,6 +16,8 @@ Each MicroService is a **SpringBoot** project, so most of the Configurations are
 
 - [ ] Java 11
 - [ ] Spring Data
+- [ ] Spring Security (Basic Auth)
+- [ ] Spring Actuator
 - [ ] json format
 - [ ] Slf4j
 - [ ] JUnit 4/5

@@ -1,4 +1,4 @@
-cd ../PostgreSQL_UsersCredentials
+cd ../DB_Docker_Configs/PostgreSQL_UsersCredentials
 
 echo "------------------------------------------------------"
 echo "starting postgresql for Users Credentials Service"

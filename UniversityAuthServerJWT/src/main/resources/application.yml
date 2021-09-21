@@ -1,0 +1,40 @@
+# ==============================================================
+# = Authentication Server JWT
+# ==============================================================
+
+spring:
+    application:
+        name: UNIVERSITY-AUTH-SERVICE
+
+server:
+    port: 9210
+    
+
+# ==============================================================
+# = Custom Parameters
+# = Parameters to acces through UserCredentials Service
+# ==============================================================
+usercredential:
+  serviceURL: http://localhost:8019/api/users/fetch/user/
+  userId: felice
+  password: 
+
+
+# ==============================================================
+# = JWT Security Params 
+# ==============================================================
+security:
+    uri: /auth  
+    refresh: /refresh   
+    header: Authorization
+    prefix: Bearer 
+    expiration: 86400   
+    secret: 01234f     
+
+# ==============================================================
+# = Level Security Log
+# ==============================================================  
+logging:
+  level:
+    org.springframework.security: DEBUG
+

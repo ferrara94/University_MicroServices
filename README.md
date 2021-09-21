@@ -24,7 +24,7 @@ For instance, to run the Students Web Services, you need to create **University*
 
 - [ ] Java 11
 - [ ] Spring Data
-- [ ] Spring Security (Basic Auth)
+- [ ] Spring Security (Basic Auth, JWT Auth)
 - [ ] Spring Actuator
 - [ ] json format
 - [ ] Slf4j
@@ -40,6 +40,7 @@ For instance, to run the Students Web Services, you need to create **University*
 
 - [ ] Students Web 
 - [ ] Users Credentials
+- [ ] Course Web
 
 
 

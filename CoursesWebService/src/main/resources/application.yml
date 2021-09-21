@@ -1,0 +1,65 @@
+server:
+  port: 8021
+
+# ==============================================================
+# = Courses Web Service
+# ==============================================================
+spring:
+  application:
+    name: CoursesService
+  # ==============================================================
+  # = DBMS PostgreSQL Parameters
+  # ==============================================================
+  datasource:
+    initialization-mode: always
+    password: '01234'
+    platform: postgres
+    url: jdbc:postgresql://localhost:5435/Courses
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+
+
+# ==============================================================
+# = Log Properties Levels 
+# = Default ERROR, WARN and INFO 
+# = Levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+# ============================================================== 
+
+logging:
+  file:
+    name: './logs/CoursesService.log'
+    max-size: 1MB
+  pattern:
+    file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n%n"
+    #console: "%d{dd-MM-yyyy HH:mm:ss} - %msg%n"
+    
+  # Log General Level
+  level:
+   root: WARN
+  # Log specific levels
+   org.springframework.security: DEBUG
+   org.hibernate: INFO
+   org.springframework.web: INFO
+   com.develop.courses.controller: INFO
+
+      
+# ==============================================================
+# = Custom Parameters
+# = Parameters to acces through UserCredentials Service
+# ==============================================================
+usercredential:
+  serviceURL: http://localhost:8019/api/users/fetch/user/
+  userId: felice
+  password: 
+
+
+  

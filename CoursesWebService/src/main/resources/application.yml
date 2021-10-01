@@ -60,6 +60,18 @@ usercredential:
   serviceURL: http://localhost:8019/api/users/fetch/user/
   userId: felice
   password: 
+  
+
+# ==============================================================
+# = JWT Security Params 
+# ==============================================================
+security:
+    uri: /auth  
+    refresh: /refresh   
+    header: Authorization
+    prefix: Bearer 
+    expiration: 86400   
+    secret: '01234'     
 
 
   

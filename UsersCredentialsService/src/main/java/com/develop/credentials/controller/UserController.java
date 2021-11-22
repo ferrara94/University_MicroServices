@@ -76,6 +76,42 @@ public class UserController {
 		return new ResponseEntity<>(responseNode, headers, HttpStatus.OK);
 	}
 	
+	//-----------------------------------------
+	
+	@GetMapping(value = "/fetch/user/{userId}")
+	public User fetchUserByUserId(@PathVariable("userId") String UserId) {
+		
+		LOG.info(String.format(" --- Start Get user %s from DB ---", UserId));
+		
+		User user = service.getUserByUserId(UserId);
+				
+		if(user == null) return null;
+				
+		
+		LOG.info(String.format(" ---User %s found ---", UserId));
+				
+		return user;
+	}
+	
+	@GetMapping(value = "/fetch/users")
+	public List<User> fetchUsers() {
+		
+		LOG.info(" --- Start Get users from DB ---");
+		
+		List<User> users = service.getAllUsers();
+				
+		if(users == null) return null;
+				
+		
+		LOG.info(" ---Users retrived ");
+				
+		return users;
+	}
+	
+	// ------------------------------------
+	
+	
+	
 	@PostMapping(value = "/add")
 	public ResponseEntity<?> addNewUser(@RequestBody User user) {
 		

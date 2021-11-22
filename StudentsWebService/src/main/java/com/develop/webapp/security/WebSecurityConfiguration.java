@@ -1,5 +1,7 @@
 package com.develop.webapp.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +19,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
+	private final Logger LOG = LoggerFactory.getLogger(getClass());
+	
 	@Autowired
 	CustomUserDetailsService userService;
 	
@@ -65,6 +69,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		UserEntity u = userService.getUser("Felice");
 		
+		if(u == null) {
+			LOG.warn(" --- UserEntity Null --- ");
+			u = new UserEntity("visitor","pass",true,"VISITOR");
+		}
 					
 			manager.createUser(
 					 users

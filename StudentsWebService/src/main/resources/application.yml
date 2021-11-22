@@ -42,7 +42,7 @@ logging:
   
 # ==============================================================
 # = Custom Parameters
-#Opzioni Accesso Servizio gestuser 
+# = Parameters to acces through UserCredentials Service
 # ==============================================================
 usercredential:
   serviceURL: http://localhost:8019/api/users/fetch/user/

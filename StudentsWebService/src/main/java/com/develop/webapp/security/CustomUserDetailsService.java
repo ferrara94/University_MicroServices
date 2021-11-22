@@ -1,5 +1,6 @@
 package com.develop.webapp.security;
 
+import java.net.ConnectException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -35,8 +36,18 @@ public class CustomUserDetailsService {
 		LOG.info(String.format(" --- End retring user %s from external service ---", userId));
 		System.err.println("MANUAL LOG: End retriving user " +userId + " from external service " + params.getServiceURL());
 		
+		UserEntity ue = null;
 		
-		return restTemplate.getForObject(url, UserEntity.class);
+		try {
+			ue = restTemplate.getForObject(url, UserEntity.class);
+		}
+		catch (Exception e) {
+			LOG.warn(" --- ERROR REST TEMPALE CALL: CONNECTION REFUSED PROBABLY CAUSED BY THE INACTIVITY OF USERS CREDENTIALS SERVICE --- --- ");
+			System.err.println("--- ERROR REST TEMPALE CALL: CONNECTION REFUSED PROBABLY CAUSED BY THE INACTIVITY OF USERS CREDENTIALS SERVICE ---");
+			System.err.println(e);
+		}
+		
+		return ue;
 	}
 	
 	

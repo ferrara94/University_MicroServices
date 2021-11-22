@@ -11,6 +11,9 @@ Each MicroService is a **SpringBoot** project, so most of the Configurations are
 
 **RequestsMapping.postman_collection** is a collection of RequestMapping in postman which you can use direclty to test the services.
 
+For additional information you can check out the file called **documentation.pdf**. 
+
+
 ---
 
 #### > databases

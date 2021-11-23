@@ -9,6 +9,126 @@
 			"name": "students_web_service",
 			"item": [
 				{
+					"name": "actuator",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "Felice",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "01234",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/actuator",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"actuator"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "info",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "Felice",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "01234",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customStudentsInfo",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "Felice",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "01234",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/actuator/customStudentsInfo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"actuator",
+										"customStudentsInfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "customEndpointByString",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "GET_STUDENTS",
 					"request": {
 						"method": "GET",
@@ -111,6 +231,26 @@
 								"student",
 								"id",
 								"61270"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "swagger-json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v2/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"api-docs"
 							]
 						}
 					},
@@ -223,6 +363,113 @@
 								"user",
 								"Felice"
 							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courses_web_service",
+			"item": [
+				{
+					"name": "GET_COURSES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/api/courses/get/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"api",
+								"courses",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_COURSE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"applied physics\",\n    \"hours\": 56,\n    \"prof\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/api/courses/post/course/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"api",
+								"courses",
+								"post",
+								"course",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_COURSES",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"cloud computing\",\n        \"hours\": 46,\n        \"prof\": 2\n    },\n    {\n        \"name\": \"GENERAL PHYSICS\",\n        \"hours\": 66,\n        \"prof\": 1\n    },\n    {\n        \"name\": \"telecommunication\",\n        \"hours\": 56,\n        \"prof\": 6\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8021/api/courses/post/courses/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"api",
+								"courses",
+								"post",
+								"courses",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth_service",
+			"item": [
+				{
+					"name": "CREATE_AUTH_TOKEN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []

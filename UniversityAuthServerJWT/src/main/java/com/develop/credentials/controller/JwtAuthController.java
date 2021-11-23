@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class JwtAuthController {
 	
 	@Autowired
 	JwtTokenUtil jwtTokenUtil;
-	
+		
 	@Autowired
 	@Qualifier("customUserDetailsService")
 	CustomUserDetailsService userDetailsService;
@@ -37,6 +38,7 @@ public class JwtAuthController {
 	public ResponseEntity<?> createAuthToken(@RequestBody JwtTokenRequest authRequest) {
 		
 		logger.info("--- Start: Authentication and Token Generation ---");
+		System.err.println("--- MANUAL LOG: Start Authentication and Token Generation ---");
 
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(authRequest.getUsername());
@@ -52,7 +54,25 @@ public class JwtAuthController {
 					responseNode.put("message", "Credentials not valid!");
 				
 					return new ResponseEntity<>(responseNode, HttpStatus.BAD_REQUEST);
-			}
+		}
+		
+		if(!userDetails.getPassword().equals(authRequest.getPassword())) {
+
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode responseNode = mapper.createObjectNode();
+			
+						
+			responseNode.put("code", HttpStatus.BAD_REQUEST.toString());
+			responseNode.put("message", "Credentials not valid!");
+		
+			logger.warn("--- Credentials not valid! Check password ---");
+			
+			
+			return new ResponseEntity<>(responseNode, HttpStatus.BAD_REQUEST);
+		}
+				
+		
+		System.err.println("pass: "+userDetails.getPassword());
 		
 		logger.info(" --- JWT TOKEN UTIL GENERATE  ---");
 		System.err.println(" --- JWT TOKEN UTIL GENERATE  ---");
@@ -67,5 +87,19 @@ public class JwtAuthController {
 
 
 	}
+	
+	
+	@GetMapping(value = "testAuth")
+	public ResponseEntity<?> testAuthToken() {
+		
+	
+		logger.warn("--- TEST AUTH TOKEN ---");
+		System.err.println(" --- TEST AUTH TOKEN  ---");
+		
+		return new ResponseEntity<>("test ok",HttpStatus.OK);
+	}
+	
+	
+	
 	
 }

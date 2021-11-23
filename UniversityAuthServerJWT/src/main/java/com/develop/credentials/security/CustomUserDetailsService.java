@@ -6,10 +6,10 @@ import java.net.URISyntaxException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	private static final Logger LOG = LoggerFactory.getLogger(CustomUserDetailsService.class);
 	
 	@Autowired
-	UserParams userParams;
+	UserParams userParams;	
 	
 	@Override
 	public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
@@ -90,6 +90,8 @@ public class CustomUserDetailsService implements UserDetailsService{
 			}
 			
 			return ue;
-		}
+	}
+	
+	
 
 }

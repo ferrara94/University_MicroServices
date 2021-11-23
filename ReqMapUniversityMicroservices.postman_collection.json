@@ -468,8 +468,44 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Felice\",\n    \"password\": \"01234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:9210/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9210",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TEST AUTH",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9210/testAuth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9210",
+							"path": [
+								"testAuth"
+							]
 						}
 					},
 					"response": []

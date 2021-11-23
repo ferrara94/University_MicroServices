@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class UserEntity {
 
-private String userid;
+	private String userid;
 	
 	private String password;
 	

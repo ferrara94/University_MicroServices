@@ -29,7 +29,7 @@ security:
     header: Authorization
     prefix: Bearer 
     expiration: 86400   
-    secret: 01234f     
+    secret: '01234'     
 
 # ==============================================================
 # = Level Security Log

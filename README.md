@@ -44,6 +44,7 @@ For instance, to run the Students Web Services, you need to create **University*
 - [ ] Students Web 
 - [ ] Users Credentials
 - [ ] Course Web
+- [ ] UniversityAuthServerJWT
 
 
 

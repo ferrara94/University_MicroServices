@@ -1,0 +1,15 @@
+server:
+  port: 8079
+
+spring: 
+  application:
+     name : administration-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
+      enabled: false
+       
+ #config.cloud.config.uri=http//localhost:8888
+    compatibility-verifier:
+      enabled: false

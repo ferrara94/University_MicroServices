@@ -24,5 +24,18 @@ public class Student implements Serializable {
     private String university;
     
     private boolean active;
+    
+    public Student() {}
+
+	public Student(Long id, String name, String surname, String university, boolean active) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.university = university;
+		this.active = active;
+	}
+
+	
+        
 
 }

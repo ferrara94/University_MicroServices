@@ -1,6 +1,5 @@
 package com.develop.webapp.security;
 
-import java.net.ConnectException;
 import java.net.URI;
 import java.net.URISyntaxException;
 

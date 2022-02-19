@@ -13,6 +13,14 @@ public class StudentServiceImpl implements StudentService{
 
     @Autowired
     StudentRepository repo;
+    
+    public  StudentServiceImpl() {
+    	
+    }
+    
+    public  StudentServiceImpl(StudentRepository repo) {
+    	this.repo = repo;
+	}
 
     @Override
     public List<Student> getStudents() {

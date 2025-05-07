@@ -3,10 +3,17 @@
 
 **University Microservice** is a collection of Spring Boot-based microservices designed to model key entities within the university world. Each microservice focuses on a limited set of entities, providing a modular architecture for handling university-related processes.
 Whether you're managing courses, students, or faculty, these microservices help streamline and organize various university functions through independent services.
-For additional information you can check out the file called **documentation.pdf**. 
-
 
 Need to manage a course or student data? 💡 This repo will help you!
+
+---
+
+## 📚 Documentation & Architecture
+
+You’ll find helpful resources to better understand and test the microservices:
+- **postman_collection**: A Postman collection with ready-to-use API requests for testing the services.
+- **documentation.pdf**: Contains architectural overviews, service relationships, and additional implementation details to guide development and integration.
+- **architecture.pdf**
 
 ---
 
